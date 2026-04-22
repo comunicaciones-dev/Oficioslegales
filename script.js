@@ -21,8 +21,6 @@
     aValue: document.getElementById("a-value"),
     deValue: document.getElementById("de-value"),
     bodyValue: document.getElementById("body-value"),
-    signerName: document.getElementById("signer-name"),
-    signerTitle: document.getElementById("signer-title"),
   };
 
   const docNodes = {
@@ -34,7 +32,6 @@
     meta: document.getElementById("doc-meta"),
     parties: document.getElementById("doc-parties"),
     body: document.getElementById("doc-body"),
-    signature: document.getElementById("doc-signature"),
   };
 
   let logoDataUrl = "";
@@ -143,19 +140,6 @@
 
     // Body.
     docNodes.body.textContent = fields.bodyValue.value;
-
-    // Signature.
-    const signerName = fields.signerName.value.trim();
-    const signerTitle = fields.signerTitle.value.trim();
-    if (signerName || signerTitle) {
-      docNodes.signature.innerHTML =
-        `<div class="signer-name">${escapeHtml(signerName)}</div>` +
-        (signerTitle
-          ? `<div class="signer-title">${escapeHtml(signerTitle)}</div>`
-          : "");
-    } else {
-      docNodes.signature.innerHTML = "";
-    }
   }
 
   function metaRow(label, value) {

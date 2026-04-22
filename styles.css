@@ -317,24 +317,6 @@ legend {
 .doc-body {
   text-align: justify;
   white-space: pre-wrap;
-  margin-bottom: 48px;
-}
-
-.doc-signature {
-  margin-top: 64px;
-  text-align: center;
-}
-
-.doc-signature .signer-name {
-  font-weight: bold;
-  border-top: 1px solid #000;
-  display: inline-block;
-  padding-top: 4px;
-  min-width: 8cm;
-}
-
-.doc-signature .signer-title {
-  font-size: 11pt;
 }
 
 @media (max-width: 900px) {

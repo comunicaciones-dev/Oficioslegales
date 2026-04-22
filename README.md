@@ -31,7 +31,9 @@ python3 -m http.server 8000
 - **A:** destinatario.
 - **DE:** remitente.
 - **Cuerpo** del oficio.
-- **Firma**: nombre y cargo.
+
+> El documento no incluye bloque de firma: la firma electrónica avanzada se
+> aplica posteriormente en un sistema interno.
 
 ## Exportación
 
