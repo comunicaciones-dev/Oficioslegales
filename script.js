@@ -128,7 +128,9 @@
     if (fields.useAdj.checked) {
       metaRows.push(metaRow("ADJ:", fields.adjValue.value));
     }
-    docNodes.meta.innerHTML = metaRows.join("");
+    docNodes.meta.innerHTML = metaRows.length
+      ? `<div class="doc-meta-inner">${metaRows.join("")}</div>`
+      : "";
 
     // Parties (A, DE).
     const partyRows = [];
