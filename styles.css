@@ -286,23 +286,25 @@ legend {
 }
 
 .doc-meta-inner {
-  display: inline-block;
+  display: inline-table;
   text-align: left;
+  border-collapse: collapse;
 }
 
 .doc-meta .meta-row {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 2px;
+  display: table-row;
+}
+
+.doc-meta .meta-label,
+.doc-meta .meta-value {
+  display: table-cell;
+  padding: 0 4px 2px 0;
+  vertical-align: top;
 }
 
 .doc-meta .meta-label {
   font-weight: bold;
-  min-width: 42px;
-}
-
-.doc-meta .meta-value {
-  flex: 1;
+  white-space: nowrap;
 }
 
 .doc-parties {
