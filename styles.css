@@ -280,18 +280,25 @@ legend {
 }
 
 .doc-meta {
-  margin-bottom: 18px;
+  margin-top: 10px;
+  display: inline-block;
+  text-align: left;
 }
 
 .doc-meta .meta-row {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   margin-bottom: 2px;
+  font-size: 11pt;
 }
 
 .doc-meta .meta-label {
   font-weight: bold;
-  min-width: 50px;
+  min-width: 42px;
+}
+
+.doc-meta .meta-value {
+  flex: 1;
 }
 
 .doc-parties {
