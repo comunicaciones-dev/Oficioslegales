@@ -1,0 +1,372 @@
+:root {
+  --bg: #f5f6f8;
+  --panel-bg: #ffffff;
+  --border: #d9dce1;
+  --text: #1f2328;
+  --muted: #6b7280;
+  --primary: #1f4e8c;
+  --primary-hover: #173d6e;
+  --secondary: #e5e7eb;
+  --secondary-hover: #d1d5db;
+  --focus: #3b82f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 14px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--panel-bg);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app-header h1 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  background: var(--secondary-hover);
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 4px 0;
+  text-decoration: underline;
+  margin-left: 8px;
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: minmax(340px, 420px) 1fr;
+  gap: 16px;
+  padding: 16px;
+  height: calc(100vh - 57px);
+}
+
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: auto;
+}
+
+.form-panel {
+  padding: 16px;
+}
+
+fieldset {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin: 0 0 14px 0;
+}
+
+legend {
+  font-weight: 600;
+  padding: 0 6px;
+  font-size: 13px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field input[type="file"],
+.field textarea {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-family: inherit;
+  background: white;
+  width: 100%;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: -1px;
+  border-color: var(--focus);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0 0 10px 0;
+}
+
+.optional-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.optional-header {
+  min-width: 70px;
+}
+
+.optional-field input[type="text"] {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+.optional-field input[type="text"]:disabled {
+  background: #f3f4f6;
+  color: var(--muted);
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.checkbox input[type="checkbox"] {
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Preview panel */
+.preview-panel {
+  background: #9ca3af20;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.preview-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Carta tamaño: 21.59cm x 27.94cm.
+   Usamos A4 (21cm x 29.7cm) como referencia. */
+.document {
+  width: 21cm;
+  min-height: 29.7cm;
+  background: white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  color: #000;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12pt;
+  line-height: 1.5;
+}
+
+.doc-padding {
+  /* Los márgenes reales se aplican inline vía JS */
+  padding: 2.5cm 2.5cm 2.5cm 3cm;
+}
+
+.doc-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.doc-logo {
+  max-height: 2.5cm;
+  max-width: 6cm;
+  display: none;
+}
+
+.doc-logo.visible {
+  display: block;
+}
+
+.doc-header-right {
+  text-align: right;
+  font-size: 11pt;
+}
+
+.doc-place-date {
+  margin-bottom: 4px;
+}
+
+.doc-number {
+  font-weight: bold;
+}
+
+.doc-meta {
+  margin-bottom: 18px;
+}
+
+.doc-meta .meta-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.doc-meta .meta-label {
+  font-weight: bold;
+  min-width: 50px;
+}
+
+.doc-parties {
+  margin-bottom: 18px;
+}
+
+.doc-parties .party-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.doc-parties .party-label {
+  font-weight: bold;
+  min-width: 50px;
+}
+
+.doc-parties .party-value {
+  white-space: pre-wrap;
+  flex: 1;
+}
+
+.doc-body {
+  text-align: justify;
+  white-space: pre-wrap;
+  margin-bottom: 48px;
+}
+
+.doc-signature {
+  margin-top: 64px;
+  text-align: center;
+}
+
+.doc-signature .signer-name {
+  font-weight: bold;
+  border-top: 1px solid #000;
+  display: inline-block;
+  padding-top: 4px;
+  min-width: 8cm;
+}
+
+.doc-signature .signer-title {
+  font-size: 11pt;
+}
+
+@media (max-width: 900px) {
+  .app-main {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .document {
+    width: 100%;
+    min-height: auto;
+  }
+}
+
+@media print {
+  .app-header,
+  .form-panel {
+    display: none;
+  }
+  .app-main {
+    display: block;
+    padding: 0;
+    height: auto;
+  }
+  .preview-panel {
+    padding: 0;
+    background: white;
+    border: none;
+  }
+  .document {
+    box-shadow: none;
+    width: 100%;
+    min-height: auto;
+  }
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generador de Oficios Legales</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Generador de Oficios Legales</h1>
+    <div class="header-actions">
+      <button id="btn-reset" type="button" class="btn btn-secondary">Limpiar</button>
+      <button id="btn-download" type="button" class="btn btn-primary">Descargar PDF</button>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section class="panel form-panel">
+      <form id="oficio-form" autocomplete="off">
+        <fieldset>
+          <legend>Plantilla</legend>
+
+          <div class="field">
+            <label for="logo-input">Logo (opcional)</label>
+            <input type="file" id="logo-input" accept="image/*" />
+            <button type="button" id="logo-clear" class="btn-link">Quitar logo</button>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="margin-top">Margen superior (cm)</label>
+              <input type="number" id="margin-top" min="0" step="0.1" value="2.5" />
+            </div>
+            <div class="field">
+              <label for="margin-right">Margen derecho (cm)</label>
+              <input type="number" id="margin-right" min="0" step="0.1" value="2.5" />
+            </div>
+            <div class="field">
+              <label for="margin-bottom">Margen inferior (cm)</label>
+              <input type="number" id="margin-bottom" min="0" step="0.1" value="2.5" />
+            </div>
+            <div class="field">
+              <label for="margin-left">Margen izquierdo (cm)</label>
+              <input type="number" id="margin-left" min="0" step="0.1" value="3" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Encabezado</legend>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="place-date">Lugar y fecha</label>
+              <input type="text" id="place-date" placeholder="Santiago, 22 de abril de 2026" />
+            </div>
+            <div class="field">
+              <label for="oficio-number">N° de oficio</label>
+              <input type="text" id="oficio-number" placeholder="OFICIO N° 001/2026" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Campos opcionales</legend>
+          <p class="hint">Marca los que quieras incluir en el documento.</p>
+
+          <div class="optional-field">
+            <div class="optional-header">
+              <label class="checkbox">
+                <input type="checkbox" id="use-ref" />
+                <span>REF:</span>
+              </label>
+            </div>
+            <input type="text" id="ref-value" placeholder="Referencia" disabled />
+          </div>
+
+          <div class="optional-field">
+            <div class="optional-header">
+              <label class="checkbox">
+                <input type="checkbox" id="use-mat" />
+                <span>MAT:</span>
+              </label>
+            </div>
+            <input type="text" id="mat-value" placeholder="Materia" disabled />
+          </div>
+
+          <div class="optional-field">
+            <div class="optional-header">
+              <label class="checkbox">
+                <input type="checkbox" id="use-adj" />
+                <span>ADJ:</span>
+              </label>
+            </div>
+            <input type="text" id="adj-value" placeholder="Adjuntos" disabled />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Destinatario / Remitente</legend>
+
+          <div class="field">
+            <label for="a-value">A:</label>
+            <textarea id="a-value" rows="2" placeholder="Nombre y cargo del destinatario"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="de-value">DE:</label>
+            <textarea id="de-value" rows="2" placeholder="Nombre y cargo del remitente"></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Cuerpo del documento</legend>
+
+          <div class="field">
+            <label for="body-value">Texto</label>
+            <textarea
+              id="body-value"
+              rows="10"
+              placeholder="Escribe aquí el contenido del oficio. Puedes usar líneas en blanco para separar párrafos."
+            ></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Firma</legend>
+
+          <div class="field">
+            <label for="signer-name">Nombre del firmante</label>
+            <input type="text" id="signer-name" placeholder="Nombre completo" />
+          </div>
+
+          <div class="field">
+            <label for="signer-title">Cargo / Título</label>
+            <input type="text" id="signer-title" placeholder="Cargo o título" />
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+    <section class="panel preview-panel">
+      <div class="preview-wrapper">
+        <div id="document" class="document">
+          <div class="doc-padding">
+            <div class="doc-header">
+              <img id="doc-logo" class="doc-logo" alt="" />
+              <div class="doc-header-right">
+                <div id="doc-place-date" class="doc-place-date"></div>
+                <div id="doc-number" class="doc-number"></div>
+              </div>
+            </div>
+
+            <div id="doc-meta" class="doc-meta"></div>
+
+            <div id="doc-parties" class="doc-parties"></div>
+
+            <div id="doc-body" class="doc-body"></div>
+
+            <div id="doc-signature" class="doc-signature"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
