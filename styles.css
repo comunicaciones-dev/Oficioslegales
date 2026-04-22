@@ -251,7 +251,6 @@ legend {
 .doc-header {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   margin-bottom: 24px;
   gap: 16px;
 }
@@ -267,6 +266,7 @@ legend {
 }
 
 .doc-header-right {
+  margin-left: auto;
   text-align: right;
   font-size: 11pt;
 }
